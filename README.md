@@ -8,7 +8,7 @@ In Rancher's UI, go to **Admin/Settings** and add a new custom catalog:
 
 | Name            | URL                                                   | Branch |
 | --------------- | ----------------------------------------------------- | ------ |
-| MongoDB Sharded | https://github.com/lgaticaq/mongo-sharded-rancher.git | master |
+| MongoDB Sharded | https://github.com/dovuongnguyen/mongo-sharded-rancher.git | master |
 
 ## Templates
 
