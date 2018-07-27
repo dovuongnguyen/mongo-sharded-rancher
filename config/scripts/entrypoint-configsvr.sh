@@ -48,6 +48,6 @@ else
       mongo --host $IP -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --authenticationDatabase admin --eval "printjson(rs.add('$MYIP:27017'))"
     fi
   done
-  mongod --shutdown && mongod --configsvr --dbpath /data/db --port "27017" --keyFile /run/secrets/MONGODB_KEYFILE --replSet $RS_NAME
+  mongod --shutdown && mongod --configsvr --dbpath /data/db --bind_ip 0.0.0.0 --port "27017" --keyFile /run/secrets/MONGODB_KEYFILE --replSet $RS_NAME
 fi
 
