@@ -12,7 +12,7 @@ do
   IS_MASTER=$(mongo --host $IP --eval "printjson(db.isMaster())" | grep 'ismaster')
   if echo $IS_MASTER | grep "true"
   then
-    mongo --host $IP -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --authenticationDatabase admin --eval "printjson(rs.addArb('$MYIP:27017'))"
+    mongo --host $IP --bind_ip 0.0.0.0 -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD --authenticationDatabase admin --eval "printjson(rs.addArb('$MYIP:27017'))"
   fi
 done
-mongod --shutdown && mongod --keyFile /run/secrets/MONGODB_KEYFILE --replSet $RS_NAME --shardsvr --dbpath /data/db --port 27017
+mongod --shutdown && mongod --keyFile /run/secrets/MONGODB_KEYFILE --replSet $RS_NAME --shardsvr --dbpath /data/db --bind_ip 0.0.0.0 --port 27017
