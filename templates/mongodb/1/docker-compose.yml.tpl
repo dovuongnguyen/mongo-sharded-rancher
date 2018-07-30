@@ -13,7 +13,6 @@ services:
       {{- if ne .Values.MONGOD_HOST_LABEL ""}}
       io.rancher.scheduler.affinity:host_label: ${MONGOD_HOST_LABEL}
       {{- end}}
-      io.rancher.container.pull_image: always
       io.rancher.container.hostname_override: container_name
       io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
       io.rancher.sidekicks: mongod-config, mongod-data
@@ -40,7 +39,6 @@ services:
       {{- if ne .Values.MONGOD_HOST_LABEL ""}}
       io.rancher.scheduler.affinity:host_label: ${MONGOD_HOST_LABEL}
       {{- end}}
-      io.rancher.container.pull_image: always
       io.rancher.container.hostname_override: container_name
       io.rancher.container.start_once: 'true'
 
@@ -70,7 +68,6 @@ services:
       {{- if ne .Values.ARBITER_HOST_LABEL ""}}
       io.rancher.scheduler.affinity:host_label: ${ARBITER_HOST_LABEL}
       {{- end}}
-      io.rancher.container.pull_image: always
       io.rancher.container.hostname_override: container_name
       io.rancher.sidekicks: arbiter-config, arbiter-data
     environment:
@@ -94,7 +91,6 @@ services:
       {{- if ne .Values.ARBITER_HOST_LABEL ""}}
       io.rancher.scheduler.affinity:host_label: ${ARBITER_HOST_LABEL}
       {{- end}}
-      io.rancher.container.pull_image: always
       io.rancher.container.hostname_override: container_name
       io.rancher.container.start_once: 'true'
 
@@ -125,7 +121,6 @@ services:
       {{- if ne .Values.CONFIGSVR_HOST_LABEL ""}}
       io.rancher.scheduler.affinity:host_label: ${CONFIGSVR_HOST_LABEL}
       {{- end}}
-      io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
       io.rancher.container.hostname_override: container_name
       io.rancher.sidekicks: configsvr-config, configsvr-data
@@ -148,7 +143,6 @@ services:
       {{- if ne .Values.CONFIGSVR_HOST_LABEL ""}}
       io.rancher.scheduler.affinity:host_label: ${CONFIGSVR_HOST_LABEL}
       {{- end}}
-      io.rancher.container.pull_image: always
       io.rancher.container.hostname_override: container_name
       io.rancher.container.start_once: 'true'
 
@@ -186,7 +180,6 @@ services:
       {{- if ne .Values.MONGOS_HOST_LABEL ""}}
       io.rancher.scheduler.affinity:host_label: ${MONGOS_HOST_LABEL}
       {{- end}}
-      io.rancher.container.pull_image: always
       io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
       io.rancher.container.hostname_override: container_name
       io.rancher.sidekicks: mongos-config
@@ -208,7 +201,6 @@ services:
       {{- if ne .Values.MONGOS_HOST_LABEL ""}}
       io.rancher.scheduler.affinity:host_label: ${MONGOS_HOST_LABEL}
       {{- end}}
-      io.rancher.container.pull_image: always
       io.rancher.container.hostname_override: container_name
       io.rancher.container.start_once: 'true'
   {{- end}}
